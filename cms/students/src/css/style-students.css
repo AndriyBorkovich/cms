@@ -1,0 +1,337 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background:lavender;
+  font-family: "Roboto",sans-serif;
+}
+div.dataTables_length select {
+  color: black !important;
+}
+div.dataTables_length label {
+  color: black;
+}
+.div.dataTables_info {
+  color: black !important;
+  background-color: #111;
+}
+#table-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto;
+}
+table, th, td {
+    text-align: center;
+    border: 0.5px solid black;
+    border-collapse: collapse;
+    font-size: 12px;
+    white-space: wrap;
+}
+
+#student-table thead th {
+  color: #ffffff;
+  background: green;
+  border: #111;
+}
+#pagination {
+  margin-top: 20px; /* відстань між таблицею та кнопками */
+  text-align: center; /* кнопки будуть центровані */
+}
+
+#pagination button {
+  padding: 10px 20px; /* збільшення розміру кнопок */
+  margin: 0 5px; /* відстань між кнопками */
+  background-color: green;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+label  {
+  float: left;
+  color:white;
+  margin: 5px;
+}
+.navigation {
+  width: 100%;
+  min-height: 10px;
+  background:darkgreen;
+}
+ nav {
+  width: 145px;
+  height: 35px;
+  padding-left: 25px;
+  padding-top: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+nav ul {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  float: left;
+}
+nav ul li {
+  display: inline-block;
+  list-style: none;
+}
+
+nav ul li a {
+  color: black;
+  text-decoration: none;
+  display: block;
+  padding: 8px 16px;
+}
+
+.profile-and-notification-wrap {
+  position: absolute;
+  float: right;
+  top: 0px;
+  right: 0px;
+}
+ 
+.user-pic {
+  float: right;
+  width: 62px;
+  height: 50px;
+  padding: 11px 17px;
+}
+.not-dot {
+  position: absolute;
+  background-color: #d63031;
+  border-radius: 50px;
+  color: white;
+  top: 10px;
+  left: 21px;
+  padding: 5px;
+  border-style: solid;
+  border-width: 2px;
+  animation: new-nots 3s infinite;
+}
+.notification {
+  width: 30px;
+  height: 50px;
+  cursor: pointer;
+  padding: 11px 1px;
+}
+.dropdown-menu-wrap {
+  position: absolute;
+  top: 65%;
+  right: 10%;
+  width: 320px;
+  float: left;
+  overflow: hidden;
+}
+.notification-menu-wrap {
+  position: absolute;
+  top: 65%;
+  right: 100%;
+  width: 220px;
+  height: 350px;
+  float: left;
+  overflow: hidden;
+  display: none;
+}
+.menu-content {
+  background: #fff;
+  padding: 20px;
+  margin: 10px;
+  display: none;
+}
+.menu-content.show {
+  display: block;
+}
+
+.notification-header {
+  background: #fff;
+  padding: 20px;
+  margin: 10px;
+  display: none;
+}
+
+.notification-header.show {
+  display: block;
+}
+
+.user-name {
+  align-items: center;
+}
+.user-name h3 {
+  font-weight:500;
+}
+
+.sub-menu hr {
+  border: 0;
+  height: 1px;
+  width: 100px;
+}
+
+.sub-menu-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #525252;
+  margin: 12px 0;
+}
+.sub-menu-link p {
+  width: 100%;
+}
+
+.sub-menu-link span {
+  font-size: 22px;
+}
+
+.sub-menu-link:hover span {
+  transform: translateX(5px);
+}
+
+.sub-menu-link:hover p {
+  font-weight: 600;
+}
+
+@keyframes new-nots {
+  0% {
+    background-color: gold;
+    border: 3px solid gold;
+  }
+  100% {
+    background-color: red;
+    border: 3px solid red;
+  }
+}
+@keyframes blinking {
+  0% {
+    background-color: gray;
+    border: 3px solid gray;
+  }
+  100% {
+    background-color: green;
+    border: 3px solid green;
+  }
+}
+  
+.dot {
+    height: 25px;
+    width: 25px;
+    background-color: grey;
+    border-radius: 50%;
+    display: inline-block;
+    border: none;
+    animation: blinking 4s infinite;
+}
+.capt {
+    height: 25px;
+    text-align: center;
+    font-size: large;
+}
+.center {
+  position:absolute;
+  top: 18%;
+  left: 75%;
+  transform:translate(-50%,-50%);
+}
+#open-add-dialog-btn {
+  background-color: green;
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 3px;
+}
+.add-edit-form {
+  position:fixed; 
+  top:100%; 
+  left:50%; 
+  width: 400px;
+  max-width:350px;
+  background:#fff;
+  border-radius:5px;
+  display:grid;
+  gap: 5px;
+  padding:50px 40px 40px;
+  box-shadow:0px 2px 2px 2px rgba(0,0,0,0.05);
+  z-index:2;
+  opacity:0; 
+}
+.add-edit-form.active {
+  top:50%;
+  transform:translate(-50%,-50%) scale(1);
+  opacity:1;
+  
+}
+.add-edit-form .close-btn {
+  position:absolute;
+  top:10px;
+  right:10px;
+  font-size:25px;
+  color:rgb(255, 255, 255);
+  background-color: green;
+  border:none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor:pointer;
+}
+
+.add-edit-form .right h2 {
+  font-size:28px;
+  font-family:"Montserrat",sans-serif;
+  line-height:1.15;
+  width: 300;
+  margin-bottom:10px;
+  color:#111;
+}
+
+.add-edit-form .right .form .labels {
+  display:block;
+  margin-bottom:5px;
+  font-size:15px;
+  text-align: center;
+  height: 20px;
+  margin: 5px;
+  font-size: medium;
+}
+
+.add-edit-form .right .form input, select {
+  width:100%;
+  padding:12px;
+  border: 2px solid green;
+  font-size:17px;
+  border-radius: 15px;
+  margin-bottom: 5px;
+}
+.add-edit-form .right .form button {
+  width:100%;
+  padding:10px;
+  font-size:18px;
+  border-radius: 15px;
+  margin: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background:green;
+  color:#fff;
+  box-shadow:0px 2px 2px #ddd;
+}
+
+#confirmation-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: white;
+  border: 1px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+#confirmation-popup p {
+  margin: 0 0 10px 0;
+}
+
+#confirmation-popup button {
+  margin-right: 10px;
+}

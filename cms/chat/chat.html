@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="src/css/messenger.css">
+  <title>Messages</title>
+</head>
+<body>
+  <div class="navigation">
+    <label id="cms-label">CMS Messages</label>
+    <div class = "profile-and-notification-wrap"> 
+      <img alt="User photo" class = "user-pic"
+      onclick="toggleDropdownMenu()" src = "https://freesvg.org/img/abstract-user-flat-4.png">
+      <img alt = "Notifications" class="notification" onclick ="toggleNotificationMenu()"
+      src="https://cdn-icons-png.flaticon.com/128/891/891012.png">
+      <div class="not-dot"></div>
+      <div class="dropdown-menu-wrap">
+        <div class="menu-content" id = "profileHeader">
+          <div class = "user-name">
+            <h3 class = "user-name-box"></h3>
+          </div>
+          <hr>
+              <a class = "sub-menu-link" href="/chat/login/login.html">
+                <img alt="" src="https://pics.freeicons.io/uploads/icons/png/7428511111582779214-512.png">
+                <p>Logout</p>
+              <span>></span>
+          </a>
+        </div>
+      </div>
+  
+      <div class="notification-menu-wrap" >
+        <div class="notification-header"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-container">
+    <header class="chat-header">
+      <h1 id = "chat-name-box"><i class="fas" ></i> Message</h1>
+      <a class="btn" id="OpenAddChatWindow">Add new chat</a>
+      <a class="btn" id="OpenAddUsersWindow">Add members</a>
+      <a class="btn" id="LeaveChatButton">Leave chat</a>
+      <a class="btn" id="DeleteChatButton">Delete chat</a>
+    </header>
+    <main class="chat-main">
+      <div class="chat-sidebar">
+        <h3><i class="fas fa-comments"></i> Rooms</h3>
+        <ul id="rooms"></ul>
+        <h3><i class="fas fa-users"></i> Members</h3>
+        <ul id="users"></ul>
+      </div>
+      <div class="chat-messages"></div>
+      </div>
+    </main>
+    <div class="chat-form-container">
+      <form id="chat-form">
+        <input
+          id="msg"
+          type="text"
+          placeholder="Enter Message"
+          required
+          autocomplete="off"
+        />
+        <button class="btn" title="i"><i class="fas fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </div>
+
+  <!--create new chat window-->
+  <div class="modal fade" id="ModalAddChat" tabindex="-1"  aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLabel1">Add new chat</h5>
+          <button type="button" class="btn-close btn-close-black" id="Close1">X</button>
+        </div>
+        <div class="modal-body">
+          <label for="new-chat-name" class="form-label">Chat name:</label>
+          <input type="text" class="form-control mb-3" id="new-chat-name" style="width: 90%;" maxlength="20">
+          
+          <label for="select-users" class="form-label">Choose users to add:</label>
+          <select class="form-select mb-3" id="select-users-for-chat" multiple>
+          </select>
+          
+          <button type="submit" id="btn-create-chat" class="btn btn-secondary" style="width: 100%;">Create</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Add new users to current chat window-->
+  <div class="modal fade" id="ModalAddUsers" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLabel2">Add new users</h5>
+          <button type="button" class="btn-close btn-close-black" id="Close2">X</button>
+        </div>
+        <div class="modal-body">
+          <label for="select-members" class="form-label">Choose users</label>
+          <select class="form-select mb-3" id="select-users" multiple>
+          </select>
+          
+          <button type="submit" id="btn-add-users" class="btn btn-secondary" style="width: 100%;">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js"
+  integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4="
+  crossorigin="anonymous"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="src/js/chat-main.js"></script>
+</body>
+</html>
